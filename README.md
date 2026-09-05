@@ -50,7 +50,7 @@ docker compose up --build -d
 ## Установка на сервере одной командой
 
 ```bash
-git clone https://github.com/<пользователь>/<репозиторий>.git && cd <репозиторий> && docker compose up -d --build
+git clone https://github.com/doc9830/MoonshineWiki.git && cd MoonshineWiki && docker compose up -d --build
 ```
 
 Что произойдёт при первом запуске:
@@ -72,12 +72,12 @@ git clone https://github.com/<пользователь>/<репозиторий>
 1. В папке проекта на сервере добавьте удалённый репозиторий:
 
    ```bash
-   git remote add origin https://github.com/<пользователь>/<репозиторий>.git
+   git remote add origin https://github.com/doc9830/MoonshineWiki.git
    ```
 
 2. Настройте доступ к GitHub одним из способов:
    - **HTTPS + Personal Access Token** (проще всего): `git config credential.helper store`, затем при первом `git push` введите логин GitHub, а в качестве пароля — токен с правами `repo`.
-   - **SSH-ключ**: добавьте публичный ключ сервера в GitHub (Settings → SSH and GPG keys) и используйте remote вида `git@github.com:<пользователь>/<репозиторий>.git`.
+   - **SSH-ключ**: добавьте публичный ключ сервера в GitHub (Settings → SSH and GPG keys) и используйте remote вида `git@github.com:doc9830/MoonshineWiki.git`.
 
 ### Выгрузка данных
 
