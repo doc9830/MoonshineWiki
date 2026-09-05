@@ -21,7 +21,8 @@ DEFAULT_USER=${DEFAULT_USER:-admin}
 
 port_in_use() {
   if command -v ss >/dev/null 2>&1; then
-    ss -ltn "sport = :$1" | grep -q .
+    # -H убирает строку-заголовок, иначе grep всегда находит её и порт кажется занятым.
+    ss -ltnH "sport = :$1" | grep -q .
   elif command -v lsof >/dev/null 2>&1; then
     lsof -iTCP:"$1" -sTCP:LISTEN -t >/dev/null 2>&1
   else
