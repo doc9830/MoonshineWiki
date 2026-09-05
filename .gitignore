@@ -1,0 +1,7 @@
+node_modules/
+# Файлы базы данных не версионируются; выгрузка контента — data/export/data.json.
+*.db
+*.db-wal
+*.db-shm
+.env
+.DS_Store
