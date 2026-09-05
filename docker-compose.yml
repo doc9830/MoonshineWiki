@@ -4,14 +4,15 @@ services:
     container_name: moonshinewiki
     restart: unless-stopped
     ports:
-      - "3000:3000"
+      # Наружу пробрасывается порт из APP_PORT (в .env или через install.sh).
+      - "${APP_PORT:-3000}:3000"
     environment:
+      # Внутренний порт контейнера фиксирован (3000).
       PORT: "3000"
-      # Обязательно смените на случайный секрет в проде.
-      SESSION_SECRET: "change-me-to-a-long-random-string"
-      # Задаются только при первом запуске (когда база пуста).
-      ADMIN_USERNAME: "admin"
-      ADMIN_PASSWORD: "admin123"
+      SESSION_SECRET: "${SESSION_SECRET:-change-me-to-a-long-random-string}"
+      # Применяются только при первом запуске (когда база пуста).
+      ADMIN_USERNAME: "${ADMIN_USERNAME:-admin}"
+      ADMIN_PASSWORD: "${ADMIN_PASSWORD:-admin123}"
       DB_PATH: "/app/data/moonshine.db"
     volumes:
       # SQLite-база и сессии сохраняются между перезапусками контейнера.
